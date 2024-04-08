@@ -7,3 +7,18 @@
 2024-04-08T10:43:56.494+03:00  INFO 21096 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 21096 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
 2024-04-08T10:43:56.495+03:00  INFO 21096 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
 2024-04-08T10:44:00.189+03:00  INFO 21096 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 4.009 seconds (process running for 4.524)
+2024-04-08T11:17:23.682+03:00  INFO 17760 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 17760 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
+2024-04-08T11:17:23.683+03:00  INFO 17760 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-04-08T11:17:27.328+03:00  INFO 17760 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 3.965 seconds (process running for 4.492)
+2024-04-08T11:25:29.660+03:00  INFO 15704 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 15704 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
+2024-04-08T11:25:29.662+03:00  INFO 15704 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-04-08T11:25:33.415+03:00  INFO 15704 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 4.069 seconds (process running for 4.671)
+2024-04-08T11:27:39.519+03:00  INFO 7504 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 7504 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
+2024-04-08T11:27:39.521+03:00  INFO 7504 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-04-08T11:27:43.427+03:00  INFO 7504 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 4.23 seconds (process running for 4.852)
+2024-04-08T11:28:04.239+03:00  INFO 18676 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 18676 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
+2024-04-08T11:28:04.240+03:00  INFO 18676 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-04-08T11:28:08.106+03:00  INFO 18676 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 4.183 seconds (process running for 4.694)
+2024-04-08T11:31:23.007+03:00  INFO 3296 --- [restartedMain] ru.dallari.db.DbApplication              : Starting DbApplication using Java 21.0.2 with PID 3296 (C:\tools\projects\db\target\classes started by chernev in C:\tools\projects\db)
+2024-04-08T11:31:23.008+03:00  INFO 3296 --- [restartedMain] ru.dallari.db.DbApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-04-08T11:31:26.746+03:00  INFO 3296 --- [restartedMain] ru.dallari.db.DbApplication              : Started DbApplication in 4.067 seconds (process running for 4.653)

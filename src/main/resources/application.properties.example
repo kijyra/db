@@ -2,6 +2,7 @@ server.port=8888
 spring.web.resources.static-locations=classpath:templates/
 spring.freemarker.enabled=true
 spring.freemarker.suffix=.ftl
+spring.profiles.default=default
 
 logging.level.root=error
 logging.level.sql=error

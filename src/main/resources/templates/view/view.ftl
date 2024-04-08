@@ -60,13 +60,13 @@
             <input type="text" class="searchKey form-control" placeholder="Кого ищите?">
         </div>
         <span class="searchCount pull-right"></span>
-        <table class="table-hover results fit-content accordion">
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Имя / Фамилия</th>
-                <th>Битрикс</th>
-                <th>Номер телефона</th>
+                <th>Имя / Фамилия </th>
+                <th>Телефон </th>
+                <th>Кабинет </th>
             </tr>
             <tr class="warning no-result">
                 <td colspan="4"><i class="fa fa-warning"></i> Совпадения не найдены</td>
@@ -75,12 +75,16 @@
             <tbody>
             <#list users as us>
                     <tr data-href="/view/${us.id}/">
-                        <th scope="row">${us.id} <i class="bi bi-chevron-down"></i></th>
+                        <th scope="row">${us.id} <i class="bi bi-chevron-down"/></th>
                         <td>${us.name} ${us.surname}</td>
-                        <td>${us.bitrix}</td>
                         <td>
                             <#list us.phones as ph>
                                 ${ph.number} <#if !ph_has_next??>, </#if>
+                            </#list>
+                        </td>
+                        <td>
+                            <#list us.computers as pc>
+                                ${pc.office} <#if !pc_has_next??>, </#if>
                             </#list>
                         </td>
                     </tr>
