@@ -60,7 +60,7 @@
             <input type="text" class="searchKey form-control" placeholder="Кого ищите?">
         </div>
         <span class="searchCount pull-right"></span>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover results fit-content">
             <thead>
             <tr>
                 <th>#</th>
