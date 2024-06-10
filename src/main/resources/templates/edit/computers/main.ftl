@@ -14,6 +14,7 @@
         <th scope="col">Кабинет</th>
         <th scope="col">Расположение</th>
         <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
     <#list computers as pc>
     <tr>

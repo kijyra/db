@@ -54,7 +54,7 @@ public class Printer {
 
     public String getPrinterSNMP(String OIDname) throws IOException {
         Properties properties = new Properties();
-        properties.load(new FileReader(".\\src\\main\\resources\\oid.properties"));
+        properties.load(new FileReader("C:\\tools\\web\\oid.properties"));
         String response = "";
         OID oid = new OID(properties.getProperty(OIDname));
 

@@ -31,6 +31,7 @@ public class ComputerController {
         model.addAttribute("title", "Компьютеры");
         Iterable<Computer> computers = computerRepository.findAll();
         model.addAttribute("computers", computers);
+
         return "edit/computers/main";
     }
 

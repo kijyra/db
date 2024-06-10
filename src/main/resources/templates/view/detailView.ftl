@@ -55,8 +55,12 @@
                         <th>Расположение: </th>
                         <th> ${pc.location.name}. ${pc.office}</th>
                     </tr>
+                    <tr>
+                        <th><a href="/edit/computers/${pc.id}/" class="btn btn-light" role="button"><b>Редактировать компьютер</b></a></th>
+                    </tr>
                 </table>
             </#list></th>
+
             <th><#list user.phones as phone>
                 <table>
                     <tr>
@@ -80,6 +84,9 @@
                     <tr>
                         <th>Расположение:</th>
                         <th>${phone.location.name}</th>
+                    </tr>
+                    <tr>
+                        <th><a href="/edit/phones/${phone.id}/" class="btn btn-light" role="button"><b>Редактировать телефон</b></a></th>
                     </tr>
                 </table>
             </#list></th>
@@ -115,6 +122,12 @@
                     <tr>
                         <th>Картридж: </th>
                         <th>${printer.printerModel.cartridge.name}</th>
+                    </tr>
+                    <tr>
+                        <th><a href="/edit/printers/${printer.id}/update/" target="_blank" class="btn btn-light" role="button">Обновить по SNMP</a></th>
+                    </tr>
+                    <tr>
+                        <th><a href="/edit/printers/${printer.id}/" class="btn btn-light" role="button"><b>Редактировать компьютер</b></a></th>
                     </tr>
                 </table>
             </#list></th>
