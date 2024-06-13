@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Department;
 import ru.dallari.db.repository.DepartmentRepository;
 
@@ -21,6 +22,8 @@ public class DepartmentController {
     @GetMapping(path = "/edit/departments/")
     public String departments(Model model) {
         model.addAttribute("title", "Отделы");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Department> departments = departmentRepository.findAll();
         model.addAttribute("departments", departments);
@@ -31,6 +34,8 @@ public class DepartmentController {
     @GetMapping(path = "/edit/departments/add/")
     public String addDepartment(Model model){
         model.addAttribute("title", "Добавить отдел");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         return "edit/departments/add";
     }
 
@@ -48,6 +53,8 @@ public class DepartmentController {
     @GetMapping(path = "/edit/departments/{id}/")
     public String editCartridge(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование отдела");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         if(!departmentRepository.existsById(id)){
             return "redirect:/edit/departments/";

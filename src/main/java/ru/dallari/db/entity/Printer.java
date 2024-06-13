@@ -1,6 +1,5 @@
 package ru.dallari.db.entity;
 
-import ch.qos.logback.classic.Logger;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

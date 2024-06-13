@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Location;
 import ru.dallari.db.entity.Printer;
 import ru.dallari.db.entity.PrinterModel;
@@ -31,6 +32,8 @@ public class PrinterController {
     @GetMapping(path = "/edit/printers/")
     public String printers(Model model) {
         model.addAttribute("title", "Принтеры");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Printer> printers = printerRepository.findAll();
         model.addAttribute("printers", printers);
@@ -40,6 +43,8 @@ public class PrinterController {
     @GetMapping(path = "/edit/printers/add/")
     public String addPrinter(Model model){
         model.addAttribute("title", "Добавить принтер");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<PrinterModel> printerModels = printerModelRepository.findAll();
         model.addAttribute("printerModel", printerModels);
         Iterable<Location> locations = locationRepository.findAll();
@@ -84,6 +89,8 @@ public class PrinterController {
     @GetMapping(path = "/edit/printers/{id}/")
     public String editPrinter(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование принтера");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<PrinterModel> printerModels = printerModelRepository.findAll();
         model.addAttribute("printerModel", printerModels);
         Iterable<Location> locations = locationRepository.findAll();
@@ -139,6 +146,9 @@ public class PrinterController {
 
     @GetMapping(path = "/edit/printers/{id}/scanUpdate/")
     public String scanUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
+
         Printer printer = printerRepository.findById(id).orElseThrow();
         String response = printer.getPrinterSNMP("ScannerCounter");
         if (response != null) {
@@ -152,6 +162,8 @@ public class PrinterController {
 
     @GetMapping(path = "/edit/printers/{id}/printUpdate/")
     public String printUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
         String response = printer.getPrinterSNMP("PrinterCounter");
         if (response != null) {
@@ -165,6 +177,8 @@ public class PrinterController {
 
     @GetMapping(path = "/edit/printers/{id}/hostnameUpdate/")
     public String hostnameUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
         String response = printer.getPrinterSNMP("hostname");
         if (response != null) {
@@ -178,6 +192,8 @@ public class PrinterController {
 
     @GetMapping(path = "/edit/printers/{id}/update/")
     public String Update(@PathVariable(value = "id") Long id, Model model) throws IOException {
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
         String hostname = printer.getPrinterSNMP("hostname");
         String printerCounter = printer.getPrinterSNMP("PrinterCounter");

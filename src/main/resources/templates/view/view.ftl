@@ -37,17 +37,24 @@
                     <a class="nav-link" href="/"><h4>Главная</h4></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/view/">Просмотр пользователей</a>
+                    <a class="nav-link" href="/view/" >Просмотр пользователей</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/edit/">Редактирование</a>
+                    <#if currentRole == "ROLE_ADMIN">
+                        <a class="nav-link" href="/edit/">Редактирование</a>
+                    </#if>
                 </li>
             </ul>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">exit</a>
+                    <a class="nav-link" href="/user">${currentUsername}</a>
+                    <#if currentUsername == "anonymous">
+                        <a class="nav-link" href="/login">Войти</a>
+                    <#else>
+                        <a class="nav-link" href="/logout">Выйти</a>
+                    </#if>
                 </li>
             </ul>
         </div>

@@ -1,11 +1,9 @@
 package ru.dallari.db.entity;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.util.Collection;
-import java.util.Set;
 
 @Entity
 @Table(name = "a_user")
@@ -17,6 +15,7 @@ public class AuthUser {
     private String username;
     private String password;
     private String roles;
+
 
     public AuthUser() {
     }

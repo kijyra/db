@@ -37,16 +37,17 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(
                         authorizeHttpRequests -> authorizeHttpRequests
-                                /*
-                                .requestMatchers("/").permitAll()
+
+                                .requestMatchers("/", "/user").permitAll()
                                 .requestMatchers( "/registration").anonymous()
                                 .requestMatchers("/edit/**").hasAnyRole("ADMIN")
                                 .requestMatchers("/edit/departments/**").hasAnyRole("ADMIN")
-                                .requestMatchers("/", "view").authenticated()
+                                .requestMatchers("/view/").authenticated()
                                 .anyRequest().permitAll()
-                                 */
+                                 /*
                                 .requestMatchers("/", "/registration", "/login").permitAll()
                                 .anyRequest().authenticated()
+                                */
                 )
                 .csrf().disable()
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Computer;
 import ru.dallari.db.entity.Location;
 import ru.dallari.db.entity.User;
@@ -29,6 +30,8 @@ public class ComputerController {
     public String computers(Model model) {
         model.addAttribute("computers", "true");
         model.addAttribute("title", "Компьютеры");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<Computer> computers = computerRepository.findAll();
         model.addAttribute("computers", computers);
 
@@ -39,6 +42,8 @@ public class ComputerController {
     public String addComputer(Model model){
         model.addAttribute("computers", "true");
         model.addAttribute("title", "Добавить компьютер");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
         return "edit/computers/add";
@@ -75,6 +80,8 @@ public class ComputerController {
     public String editComputer(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("computers", "true");
         model.addAttribute("title", "Редактирование компьютера");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("location", locations);
         if(!computerRepository.existsById(id)){
@@ -122,6 +129,8 @@ public class ComputerController {
     public String DNSnameUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
         Computer computer = computerRepository.findById(id).orElseThrow();
         model.addAttribute("title", "Компьютеры");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         model.addAttribute("computers", "true");
         try {
             InetAddress addr = InetAddress.getByName(computer.getIP());

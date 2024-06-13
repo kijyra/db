@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.*;
 import ru.dallari.db.repository.LocationRepository;
 
@@ -21,6 +22,8 @@ public class LocationController {
     @GetMapping(path = "/edit/locations/")
     public String locations(Model model) {
         model.addAttribute("title", "Расположения");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
@@ -31,6 +34,8 @@ public class LocationController {
     @GetMapping(path = "/edit/locations/add/")
     public String addLocation(Model model){
         model.addAttribute("title", "Добавить расположение");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         return "edit/locations/add";
     }
 
@@ -48,6 +53,8 @@ public class LocationController {
     @GetMapping(path = "/edit/locations/{id}/")
     public String editLocation(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование расположение");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         if(!locationRepository.existsById(id)){
             return "redirect:/edit/locations/";

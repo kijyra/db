@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Cartridge;
 import ru.dallari.db.entity.Printer;
 import ru.dallari.db.entity.PrinterModel;
@@ -27,6 +28,8 @@ public class PrinterModelController {
     @GetMapping(path = "/edit/printerModels/")
     public String printerModels(Model model) {
         model.addAttribute("title", "Модели принтеров");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<PrinterModel> printerModels = printerModelRepository.findAll();
         model.addAttribute("printerModels", printerModels);
@@ -37,6 +40,9 @@ public class PrinterModelController {
     @GetMapping(path = "/edit/printerModels/add/")
     public String addPrinterModel(Model model){
         model.addAttribute("title", "Добавить модель принтера");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
+
         Iterable<Cartridge> cartridges = cartridgeRepository.findAll();
         model.addAttribute("cartridges", cartridges);
         return "edit/printerModels/add";
@@ -59,6 +65,9 @@ public class PrinterModelController {
     @GetMapping(path = "/edit/printerModels/{id}/")
     public String editPrinterModel(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование модель принтера");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
+
         Iterable<Cartridge> cartridges = cartridgeRepository.findAll();
         model.addAttribute("cartridges", cartridges);
         if(!printerModelRepository.existsById(id)){

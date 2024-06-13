@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Cartridge;
 import ru.dallari.db.entity.Printer;
 import ru.dallari.db.entity.PrinterModel;
@@ -26,6 +27,8 @@ public class CartridgeController {
     @GetMapping(path = "/edit/cartridges/")
     public String cartridges(Model model) {
         model.addAttribute("title", "Картриджи");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Cartridge> cartridges = cartridgeRepository.findAll();
         model.addAttribute("cartridges", cartridges);
@@ -36,6 +39,8 @@ public class CartridgeController {
     @GetMapping(path = "/edit/cartridges/add/")
     public String addCartridge(Model model){
         model.addAttribute("title", "Добавить картридж");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         return "edit/cartridges/add";
     }
 
@@ -53,6 +58,8 @@ public class CartridgeController {
     @GetMapping(path = "/edit/cartridges/{id}/")
     public String editCartridge(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование картридж");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         if(!cartridgeRepository.existsById(id)){
             return "redirect:/edit/cartridges/";

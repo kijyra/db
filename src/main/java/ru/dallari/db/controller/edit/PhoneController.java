@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.Location;
 import ru.dallari.db.entity.Phone;
 import ru.dallari.db.entity.User;
@@ -26,6 +27,8 @@ public class PhoneController {
     @GetMapping(path = "/edit/phones/")
     public String printers(Model model) {
         model.addAttribute("title", "Телефоны");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Phone> phones = phoneRepository.findAll();
         model.addAttribute("phones", phones);
@@ -35,6 +38,8 @@ public class PhoneController {
     @GetMapping(path = "/edit/phones/add/")
     public String addPrinter(Model model){
         model.addAttribute("title", "Добавить телефон");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
         return "edit/phones/add";
@@ -68,6 +73,8 @@ public class PhoneController {
     @GetMapping(path = "/edit/phones/{id}/")
     public String editPhone(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("title", "Редактирование телефона");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("location", locations);
 

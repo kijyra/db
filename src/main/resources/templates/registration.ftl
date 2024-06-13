@@ -1,7 +1,7 @@
 <#import 'parts/common.ftl' as c>
 
 <@c.page>
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" style="width: 25%">
         <h2>Регистрация аккаунта</h2>
         <form method="post">
             <div class="form-group mb-3">

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.dallari.db.controller.MainController;
 import ru.dallari.db.entity.*;
 import ru.dallari.db.repository.*;
 
@@ -30,6 +31,8 @@ public class UserController {
     public String users(Model model) {
         model.addAttribute("title", "Пользователи");
         model.addAttribute("authUser", "admin");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
         return "edit/users/main";
@@ -38,6 +41,8 @@ public class UserController {
     @GetMapping(path = "/edit/users/add/")
     public String addUser(Model model){
         model.addAttribute("title", "Добавить пользователя");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         model.addAttribute("userTab", "true");
         Iterable<Computer> computers = computerRepository.findAll();
         model.addAttribute("computers", computers);
@@ -94,6 +99,8 @@ public class UserController {
     public String editUser(@PathVariable(value = "id") Integer id, Model model){
         model.addAttribute("userTab", "true");
         model.addAttribute("title", "Редактирование пользователя");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
 
         Iterable<Computer> computers = computerRepository.findAll();
         model.addAttribute("computers", computers);

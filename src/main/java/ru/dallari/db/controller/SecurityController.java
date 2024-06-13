@@ -25,26 +25,19 @@ public class SecurityController {
     PasswordEncoder passwordEncoder;
 
 
-    @GetMapping("/user")
-    public Authentication getLoggedUserDeatil(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        String authorityString = auth
-                .getAuthorities()
-                .stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
-        String role = "role_A";
-        boolean isCurrentUserInRole = auth
-                .getAuthorities()
-                .stream()
-                .anyMatch(role::equals);
-        return auth;
+    @GetMapping(path = "/user")
+    public String user(Model model) {
+        model.addAttribute("title", "Главная страница");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
+        return "user";
     }
 
     @GetMapping("/registration")
     public String registration(Model model){
         model.addAttribute("title", "Регистрация аккаунта");
+        model.addAttribute("currentUsername", MainController.currentUserName());
+        model.addAttribute("currentRole", MainController.currentRole());
         return "registration";
     }
 
