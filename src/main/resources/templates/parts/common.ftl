@@ -24,6 +24,9 @@
                             <a class="nav-link" href="/edit/">Редактирование</a>
                         </#if>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/files/" >Как подключиться</a>
+                    </li>
                 </ul>
             </div>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -60,7 +63,7 @@
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="shortcut icon" href="../files/img/ico.ico"/>
+        <link rel="shortcut icon" href="../static/files/img/ico.ico"/>
         <title>${title}</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
     </head>
@@ -76,10 +79,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/view/" >Просмотр пользователей</a>
                     </li>
+
                     <li class="nav-item">
                         <#if currentRole == "ROLE_ADMIN">
                             <a class="nav-link" href="/edit/">Редактирование</a>
                         </#if>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/files/" >Как подключиться</a>
                     </li>
                 </ul>
             </div>
