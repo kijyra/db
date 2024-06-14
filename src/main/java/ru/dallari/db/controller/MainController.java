@@ -57,6 +57,14 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping(path = "/files/")
+    public String files(Model model) {
+        model.addAttribute("title", "Загрузки");
+        model.addAttribute("currentUsername", currentUserName());
+        model.addAttribute("currentRole", currentRole());
+        return "protocols/files";
+    }
+
     @GetMapping(path = "/view/")
     public String detailView(Model model) {
         model.addAttribute("title", "Просмотр");

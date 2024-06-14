@@ -40,9 +40,8 @@ public class SecurityConfig {
 
                                 .requestMatchers("/", "/user").permitAll()
                                 .requestMatchers( "/registration").anonymous()
-                                .requestMatchers("/edit/**").hasAnyRole("ADMIN")
-                                .requestMatchers("/edit/departments/**").hasAnyRole("ADMIN")
-                                .requestMatchers("/view/").authenticated()
+                                .requestMatchers("/edit/**", "/edit/departments/**").hasAnyRole("ADMIN")
+                                .requestMatchers("/view/", "/view/**", "/files/**").authenticated()
                                 .anyRequest().permitAll()
                                  /*
                                 .requestMatchers("/", "/registration", "/login").permitAll()

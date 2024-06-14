@@ -127,7 +127,7 @@
                         <th><a href="/edit/printers/${printer.id}/update/" target="_blank" class="btn btn-light" role="button">Обновить по SNMP</a></th>
                     </tr>
                     <tr>
-                        <th><a href="/edit/printers/${printer.id}/" class="btn btn-light" role="button"><b>Редактировать компьютер</b></a></th>
+                        <th><a href="/edit/printers/${printer.id}/" class="btn btn-light" role="button"><b>Редактировать принтер</b></a></th>
                     </tr>
                 </table>
             </#list></th>

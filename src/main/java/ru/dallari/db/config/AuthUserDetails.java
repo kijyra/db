@@ -1,6 +1,5 @@
 package ru.dallari.db.config;
 
-import jakarta.persistence.criteria.CriteriaQuery;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,10 +17,10 @@ public class AuthUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.stream(authUser.getRoles().split(", "))
+        return Arrays.stream(authUser.getRoles()
+                .split(", "))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
-
     }
 
     @Override
