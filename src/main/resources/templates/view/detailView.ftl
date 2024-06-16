@@ -124,7 +124,7 @@
                         <th>${printer.printerModel.cartridge.name}</th>
                     </tr>
                     <tr>
-                        <th><a href="/edit/printers/${printer.id}/update/" target="_blank" class="btn btn-light" role="button">Обновить по SNMP</a></th>
+                        <th><a href="/edit/printers/${printer.id}/update/" class="btn btn-light" role="button">Обновить по SNMP</a></th>
                     </tr>
                     <tr>
                         <th><a href="/edit/printers/${printer.id}/" class="btn btn-light" role="button"><b>Редактировать принтер</b></a></th>

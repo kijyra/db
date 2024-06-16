@@ -1,5 +1,6 @@
 package ru.dallari.db.controller.edit;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -145,7 +146,7 @@ public class PrinterController {
     }
 
     @GetMapping(path = "/edit/printers/{id}/scanUpdate/")
-    public String scanUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+    public String scanUpdate(@PathVariable(value = "id") Long id, Model model, HttpServletRequest request) throws IOException {
         model.addAttribute("currentUsername", MainController.currentUserName());
         model.addAttribute("currentRole", MainController.currentRole());
 
@@ -157,11 +158,12 @@ public class PrinterController {
         } else {
             System.out.println("Error getting value scanner counter via SMTP for printer " + printer.getPrinterModel().getName() + ". ID: " + printer.getId());
         }
-        return "redirect:/edit/printers/{id}/";
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
     }
 
     @GetMapping(path = "/edit/printers/{id}/printUpdate/")
-    public String printUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+    public String printUpdate(@PathVariable(value = "id") Long id, Model model, HttpServletRequest request) throws IOException {
         model.addAttribute("currentUsername", MainController.currentUserName());
         model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
@@ -172,11 +174,15 @@ public class PrinterController {
         } else {
             System.out.println("Error getting value printer counter via SMTP for printer " + printer.getPrinterModel().getName() + ". ID: " + printer.getId());
         }
-        return "redirect:/edit/printers/{id}/";
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
     }
 
     @GetMapping(path = "/edit/printers/{id}/hostnameUpdate/")
-    public String hostnameUpdate(@PathVariable(value = "id") Long id, Model model) throws IOException {
+    public String hostnameUpdate(
+            @PathVariable(value = "id") Long id,
+            Model model,
+            HttpServletRequest request) throws IOException {
         model.addAttribute("currentUsername", MainController.currentUserName());
         model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
@@ -187,11 +193,12 @@ public class PrinterController {
         } else {
             System.out.println("Error getting value hostname via SMTP for printer " + printer.getPrinterModel().getName() + ". ID: " + printer.getId());
         }
-        return "redirect:/edit/printers/{id}/";
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
     }
 
     @GetMapping(path = "/edit/printers/{id}/update/")
-    public String Update(@PathVariable(value = "id") Long id, Model model) throws IOException {
+    public String Update(@PathVariable(value = "id") Long id, Model model, HttpServletRequest request) throws IOException {
         model.addAttribute("currentUsername", MainController.currentUserName());
         model.addAttribute("currentRole", MainController.currentRole());
         Printer printer = printerRepository.findById(id).orElseThrow();
@@ -222,7 +229,8 @@ public class PrinterController {
         }
 
         printerRepository.save(printer);
-        return "redirect:/edit/printers/";
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
     }
 
 }

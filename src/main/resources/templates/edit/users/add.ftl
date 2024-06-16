@@ -21,7 +21,7 @@
                 <label class="form-label">Выберете компьютер</label>
                 <select name="computer" class="form-control" class="form-select" required>
                     <#list computers as pc>
-                        <option value="${pc.IP}">${pc.id}. ${pc.IP} в ${pc.location.name} ${pc.office}</option>
+                        <option value="${pc.IP}">${pc.IP} в ${pc.location.name} ${pc.office}</option>
                     </#list>
                 </select>
             </div>
@@ -37,7 +37,7 @@
                 <label class="form-label">Выберете телефон</label>
                 <select name="phone" class="form-control" class="form-select">
                     <#list phones as ph>
-                        <option value="${ph.IP}">${ph.id}. ${ph.IP} ${ph.model} номер <i>${ph.number}</i></option>
+                        <option value="${ph.IP}">${ph.IP} ${ph.model} номер <i>${ph.number}</i></option>
                     </#list>
                 </select>
             </div>
@@ -45,7 +45,7 @@
                 <label class="form-label">Выберете принтер</label>
                 <select name="printer" class="form-control" class="form-select">
                     <#list printers as print>
-                        <option value="${print.IP}">${print.id}. ${print.IP} ${print.printerModel.manufacturer} ${print.printerModel.name} в ${print.location.name}</i></option>
+                        <option value="${print.IP}">${print.IP} ${print.printerModel.manufacturer} ${print.printerModel.name} в ${print.location.name}</i></option>
                     </#list>
                 </select>
                 <br><button type="submit" class="btn btn-success">Сохранить</button>
