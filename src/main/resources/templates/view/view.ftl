@@ -49,7 +49,7 @@
                     <a class="nav-link" href="/files/" >Как подключиться</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/1c/" >Загрузки</a>
+                    <a class="nav-link" href="/download/" >Загрузки</a>
                 </li>
             </ul>
         </div>

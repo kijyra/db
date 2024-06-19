@@ -36,3 +36,6 @@ build/
 ### other ###
 src/main/resources/application.properties
 logs
+
+### files ###
+src/main/resources/templates/static/files/download/
