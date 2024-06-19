@@ -38,15 +38,28 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authorizeHttpRequests -> authorizeHttpRequests
 
-                                .requestMatchers("/", "/user").permitAll()
+                                .requestMatchers(
+                                        "/",
+                                        "/user",
+                                        "/download/**",
+                                        "/static/files/protocol/download/**"
+                                ).permitAll()
+
                                 .requestMatchers( "/registration").anonymous()
-                                .requestMatchers("/edit/**", "/edit/departments/**").hasAnyRole("ADMIN")
-                                .requestMatchers("/view/", "/view/**", "/files/**").authenticated()
+
+                                .requestMatchers(
+                                        "/edit/**",
+                                        "/edit/departments/**"
+                                ).hasAnyRole("ADMIN")
+
+                                .requestMatchers(
+                                        "/view/",
+                                        "/view/**",
+                                        "/files/**",
+                                        "/static/files/protocol/connect/**"
+                                ).authenticated()
+
                                 .anyRequest().permitAll()
-                                 /*
-                                .requestMatchers("/", "/registration", "/login").permitAll()
-                                .anyRequest().authenticated()
-                                */
                 )
                 .csrf().disable()
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
