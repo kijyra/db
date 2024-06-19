@@ -105,11 +105,8 @@
             </#list>
             </tbody>
         </table>
-
     </div>
 </div>
-
-
 
 <script>
     function createExpr(arr) {
