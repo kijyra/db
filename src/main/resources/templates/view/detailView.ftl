@@ -104,6 +104,10 @@
                         <th><a href="http://${printer.IP}" target="_blank">${printer.IP}</a> </th>
                     </tr>
                     <tr>
+                        <th>Connect: </th>
+                        <th><a href="vnc://${printer.IP}" class="btn btn-light" role="button">VNC</a> </th>
+                    </tr>
+                    <tr>
                         <th>HostName:</th>
                         <th>${printer.DNSname}</th>
                     </tr>

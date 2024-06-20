@@ -8,6 +8,7 @@
                 <li><a href="/static/files/protocol/download/1C/windows_8_3_12_1685.zip" download>windows_8_3_12_1685.zip</a></li>
                 <li><a href="/static/files/protocol/download/1C/windows_8_3_22_2283.zip" download>windows_8_3_22_2283.zip</a></li>
                 <li><a href="/static/files/protocol/download/1C/windows_8_3_23_1865.zip" download>windows_8_3_23_1865.zip</a></li>
+                <li><a href="/static/files/protocol/download/1C/setuptc64_8_3_24_1586.zip" download>setuptc64_8_3_24_1586.zip</a></li>
                 <li><a href="/static/files/protocol/download/1C/1CBarCode_8.0.16.4.exe" download>1CBarCode_8.0.16.4.exe</a></li>
             </ul>
         </details>

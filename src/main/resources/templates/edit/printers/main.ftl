@@ -19,7 +19,7 @@
     <tr>
         <th scope="col">${pr.id}</th>
         <th>${pr.DNSname}</th>
-        <th>${pr.IP}</th>
+        <th><a href="http://${pr.IP}" target="_blank">${pr.IP}</a></th>
         <th>${pr.printCount}</th>
         <th>${pr.scanCount}</th>
         <th><a href="/edit/locations/${pr.location.id}/" class="btn btn-light" role="button"><b>${pr.location.id}.${pr.location.name}</b></a></th>
@@ -27,6 +27,7 @@
         <th><a href="/edit/cartridges/${pr.printerModel.cartridge.id}/" class="btn btn-light" role="button"><b>${pr.printerModel.cartridge.id}.${pr.printerModel.cartridge.name}</b></a></th>
         <th><a href="/edit/printers/${pr.id}/" class="btn btn-light" role="button">Edit</a> </th>
         <th><a href="/edit/printers/${pr.id}/update/" class="btn btn-light" role="button">Обновить по snmp</a></th>
+        <th><a href="vnc://${pr.IP}" class="btn btn-light" role="button">VNC</a></th>
     </tr>
     </#list>
     </table>
